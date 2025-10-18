@@ -1,0 +1,7 @@
+export { Controller } from "./Controller"
+export { DesiredMove } from "./DesiredMove"
+export { FrameRate } from "./FrameRate"
+export { Locomotion } from "./Locomotion"
+export { Sprite } from "./Sprite"
+export { Transform2D } from "./Transform2D"
+export { Velocity } from "./Velocity"
