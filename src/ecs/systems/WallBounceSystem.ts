@@ -5,7 +5,7 @@ import { Velocity } from "../components/Velocity"
 import { Sprite } from "../components/Sprite"
 import { DesiredMove } from "../components"
 
-export function WallBounceSystem(canvas: HTMLCanvasElement): System {
+export function WallBounceSystem(width: number, height: number): System {
   const wallBounceSystem: System = {
     update(world: World, dt: number) {
       for (const e of world.query(Transform2D, Velocity, Sprite, DesiredMove)) {
@@ -19,23 +19,23 @@ export function WallBounceSystem(canvas: HTMLCanvasElement): System {
         const offsetY = s.h * ay
 
         //test lef and right walls
-        if (t.x - offsetX < 0 || t.x + s.w - offsetX > canvas.width) {
+        if (t.x - offsetX < 0 || t.x + s.w - offsetX > width) {
           v.vx = -v.vx
           v.vr = -v.vr
           d.dx = -d.dx
 
           //clamp position inside walls
           t.x = Math.max(t.x, 0 + offsetX)
-          t.x = Math.min(t.x, canvas.width - s.w + offsetX)
+          t.x = Math.min(t.x, width - s.w + offsetX)
         }
         //test top and bottom walls
-        if (t.y - offsetY < 0 || t.y + s.h - offsetY > canvas.height) {
+        if (t.y - offsetY < 0 || t.y + s.h - offsetY > height) {
           v.vy = -v.vy
           v.vr = -v.vr
           d.dy = -d.dy
           //clamp position inside walls
           t.y = Math.max(t.y, 0 + offsetY)
-          t.y = Math.min(t.y, canvas.height - s.h + offsetY)
+          t.y = Math.min(t.y, height - s.h + offsetY)
         }
       }
     },

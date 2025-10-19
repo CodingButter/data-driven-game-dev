@@ -3,22 +3,10 @@ import type { World } from "../core/world"
 import { Transform2D } from "../components/Transform2D"
 import { Sprite } from "../components/Sprite"
 import { FrameRate } from "../components/FrameRate"
-import { makeCanvasRenderer, type Color } from "@/renderer/renderer"
+import type { Renderer, Color } from "@/renderer/renderer"
 
-export function RenderSystem(
-  canvas: HTMLCanvasElement,
-  width: number,
-  height: number,
-  color: Color = "#1f2937"
-): System {
+export function RenderSystem(renderer: Renderer, color: Color = "#1f2937"): System {
   // Create Canvas and set size
-
-  const dpr = Math.max(1, window.devicePixelRatio || 1)
-  canvas.style.width = width + "px"
-  canvas.style.height = height + "px"
-  canvas.width = Math.round(width * dpr)
-  canvas.height = Math.round(height * dpr)
-  const renderer = makeCanvasRenderer(canvas, { cameraMode: "topleft" })
 
   const renderSystem: System = {
     update: (world: World) => {

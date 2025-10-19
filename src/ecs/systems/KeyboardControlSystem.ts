@@ -32,7 +32,5 @@ export const KeyboardControlSystem: System = {
       d.dx = x
       d.dy = y
     }
-    // clear one-shot flags once per sim tick
-    Input.endTick()
   },
 }
