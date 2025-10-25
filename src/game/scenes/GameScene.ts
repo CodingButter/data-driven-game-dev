@@ -1,10 +1,7 @@
 import { World } from "@/ecs/core/world"
 import { runSystems, type System } from "@/ecs/core/system"
-import { FrameRate } from "@/ecs/components/FrameRate"
-import { RenderSystem } from "@/ecs/systems/RenderSystem"
+import { RenderSystem } from "@/game/systems"
 import { MovementSystem } from "@/ecs/systems/MovementSystem"
-import { WallBounceSystem } from "@/ecs/systems/WallBounceSystem"
-import { FrameRateSystem } from "@/ecs/systems/FrameRateSystem"
 import { KeyboardControlSystem } from "@/ecs/systems/KeyboardControlSystem"
 import { SteeringSystem } from "@/ecs/systems/SteeringSystem"
 import { spawnPrefab } from "@/game/prefabs/spawner"
@@ -25,21 +22,12 @@ export class GameScene implements Scene {
 
   onEnter(): void {
     this.world = new World()
-    this.renderSystems = [RenderSystem(this.sceneManager.renderer), FrameRateSystem]
-    this.updateSystems = [
-      MovementSystem,
-      WallBounceSystem(this.sceneManager.renderer.width, this.sceneManager.renderer.height),
-      FrameRateSystem,
-      KeyboardControlSystem,
-      SteeringSystem,
-    ]
+    this.renderSystems = [RenderSystem(this.sceneManager.renderer)]
+    this.updateSystems = [MovementSystem, KeyboardControlSystem, SteeringSystem]
 
     //  Createe on entity: Transform + Velocity + Sprite
     spawnPrefab(this.world, "Player")
-    spawnPrefab(this.world, "Enemy")
-    // create frame rate entity
-    const fr = this.world.create()
-    this.world.add(FrameRate, fr, FrameRate.create())
+    //spawnPrefab(this.world, "Enemy")
   }
 
   onExit(): void {}

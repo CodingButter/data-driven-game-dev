@@ -6,6 +6,8 @@ export interface ITransform2D {
   rotation: number // in degrees
   sx: number
   sy: number
+  scaleX?: number // alias for sx
+  scaleY?: number // alias for sy
 }
 
 export const Transform2D = defineComponent({
@@ -14,6 +16,8 @@ export const Transform2D = defineComponent({
   rotation: 0,
   sx: 1,
   sy: 1,
+  scaleX: 1,
+  scaleY: 1,
 } as ITransform2D)
 
 export type Transform2D = ReturnType<(typeof Transform2D)["create"]>

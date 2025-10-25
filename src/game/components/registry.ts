@@ -8,7 +8,7 @@ export type ComponentRegistryEntry = {
 
 const registry: Map<string, ComponentRegistryEntry> = new Map()
 
-export function registerComponent() {
+export function registerComponents() {
   for (const key in Components) {
     registry.set(key, {
       type: (Components as any)[key],

@@ -1,4 +1,4 @@
-import type { Renderer } from "@/renderer/renderer"
+import type { Renderer } from "@/core/renderer/renderer"
 
 export interface Scene {
   overlay?: boolean

@@ -1,11 +1,13 @@
-import { loadPrefabs } from "@/game/prefabs/loader"
-import { registerComponent } from "@/game/components/registry"
-import { makeCanvasRenderer } from "@/renderer/renderer"
+import { makeCanvasRenderer } from "@/core/renderer/renderer"
 import { Engine, type UpdateFn, type RenderFn } from "@/core/engine"
 import { SceneManager } from "@/core/scenemanager"
 import { GameScene } from "@/game/scenes/GameScene"
+import { registerComponents } from "@/game/components/registry"
+import { loadAndRegisterAssets } from "./game/assets/loader"
 
-const WIDTH = 600
+registerComponents()
+
+const WIDTH = 500
 const HEIGHT = 400
 const canvas = document.createElement("canvas")
 document.body.appendChild(canvas)
@@ -18,9 +20,7 @@ canvas.height = Math.round(HEIGHT * dpr)
 const renderer = makeCanvasRenderer(canvas, { cameraMode: "topleft" })
 
 ;(async () => {
-  registerComponent()
-  await loadPrefabs()
-
+  await loadAndRegisterAssets("/assets/Assets.json")
   const sceneManager = new SceneManager(renderer)
   const gameScene = new GameScene(sceneManager)
   sceneManager.start(gameScene)

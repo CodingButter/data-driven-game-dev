@@ -1,4 +1,4 @@
-import { getPrefab } from "@/game/prefabs/loader"
+import { getPrefab } from "@/game/assets/loader"
 import { getComponentEntry } from "@/game/components/registry"
 import type { World } from "@/ecs/core/world"
 
