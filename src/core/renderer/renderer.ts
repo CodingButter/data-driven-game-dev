@@ -1,6 +1,6 @@
 import type { Transform2D } from "@/ecs/components"
 import type { Sprite } from "@/ecs/components/Sprite"
-import type { SpriteSheet } from "@/game/types"
+import type { SpriteSheet } from "@/ecs/core/types"
 
 export type Camera2D = {
   x: number // world (CSS) units

@@ -1,5 +1,5 @@
 import type { PrefabDef } from "@/game/prefabs/types"
-import type { SpriteSheet } from "@/game/types"
+import type { SpriteSheet } from "@/ecs/core/types"
 
 const _prefabs: Map<string, PrefabDef> = new Map()
 const _spriteSheets: Map<string, SpriteSheet> = new Map()
