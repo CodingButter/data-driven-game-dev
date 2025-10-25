@@ -1,0 +1,10 @@
+{
+  "id": "tileset01",
+  "url": "/assets/images/tileset01.png",
+  "tile_width": 100,
+  "tile_height": 100,
+  "tiles": [
+    { "id": 0, "type": "stone", "walkable": true },
+    { "id": 1, "type": "snow", "walkable": true }
+  ]
+}

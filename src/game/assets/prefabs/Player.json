@@ -1,0 +1,25 @@
+{
+  "id": "Player",
+  "components": {
+    "Transform2D": {
+      "x": 100,
+      "y": 100
+    },
+    "Sprite": {
+      "w": 100,
+      "h": 100,
+      "spriteSheetId": "tileset01",
+      "spritePosition": [0, 0],
+      "anchor": [0.5, 0.5]
+    },
+    "Controller": {
+      "up": ["ArrowUp", "KeyW"],
+      "down": ["ArrowDown", "KeyS"],
+      "left": ["ArrowLeft", "KeyA"],
+      "right": ["ArrowRight", "KeyD"]
+    },
+    "Velocity": {},
+    "DesiredMove": {},
+    "Locomotion": {}
+  }
+}

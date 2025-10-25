@@ -1,0 +1,4 @@
+{
+  "prefabs": ["/assets/prefabs/Player.json", "/assets/prefabs/Enemy.json"],
+  "tilemaps": ["/assets/tilemaps/Tilemap.json"]
+}
